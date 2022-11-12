@@ -1,0 +1,40 @@
+{% extends "listor/mall.html" %}
+{% load crispy_forms_tags %}
+
+{% block innehall %}
+<div class="container py-5">
+
+  {% for lista in listan %}
+  <h1>
+    {{lista.namn}}
+    {% if lista.forfattare == user %}
+    <a href="{% url 'lista-uppdatera' lista.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+    <a href="{% url 'lista-radera' lista.id %}"><i class="fa-solid fa-trash"></i></a>
+    {% endif %}
+  </h1>
+  {% endfor %}
+
+  <table>
+    <tr>
+      <th>Artikel</th>
+      <th>antal</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for artikel in artiklar %}
+    <tr>
+      <td>{{ artikel.namn }}</td>
+      <td>{{ artikel.antal }}</td>
+      <td><a href="{% url 'artikel-uppdatera' artikel.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+      <td><a href="{% url 'artikel-radera' artikel.id %}"><i class="fa-solid fa-trash"></i></a></i></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% for lista in listan %}
+  <a class="btn btn-primary" href="{% url 'artikel-ny' lista.id %}">Ny artikel</a>
+  {% endfor %}
+
+
+</div>
+{% endblock innehall %}
