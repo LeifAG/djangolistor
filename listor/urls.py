@@ -21,4 +21,4 @@ urlpatterns = [
     path('artikel/<int:pk>/radera/', views.RaderaArtikel.as_view(), name='artikel-radera'),
     path('artikel/<int:l_pk>/ny/', views.SkapaArtikel.as_view(), name='artikel-ny'),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
