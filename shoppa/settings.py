@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'shoppa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'TthgdnOtoxsPP2XG3RiV',
+        'HOST': 'containers-us-west-81.railway.app',
+        'PORT': '7858',
     }
 }
 
